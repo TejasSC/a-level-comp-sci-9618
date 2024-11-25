@@ -1,0 +1,9 @@
+#do part a) here:
+
+#do part bi) here:
+
+#do part ci) - Iterative insertion sort here:
+
+#do part di) - Recursive binary search here:
+
+#do part bii), cii), dii) here (main program):

@@ -1,0 +1,49 @@
+#part a
+NumberArray = [100, 85, 644, 22, 15, 8, 1]
+
+#do part bi) here:
+def RecursiveInsertion(IntegerArray, NumberElements):
+    if NumberElements <= 1:
+        return IntegerArray
+
+    # Recursive call
+    RecursiveInsertion(IntegerArray, NumberElements - 1)
+
+    # Insert the last item in the sorted part of the array
+    LastItem = IntegerArray[NumberElements - 1]
+    CheckItem = NumberElements - 2
+
+    while CheckItem >= 0 and IntegerArray[CheckItem] > LastItem:
+        IntegerArray[CheckItem + 1] = IntegerArray[CheckItem]
+        CheckItem -= 1
+
+    IntegerArray[CheckItem + 1] = LastItem
+    return IntegerArray
+
+#do part ci) - Iterative insertion sort
+def IterativeInsertion(IntegerArray):
+    for i in range(1, len(IntegerArray)):
+        LastItem = IntegerArray[i]
+        CheckItem = i - 1
+        while CheckItem >= 0 and IntegerArray[CheckItem] > LastItem:
+            IntegerArray[CheckItem + 1] = IntegerArray[CheckItem]
+            CheckItem -= 1
+        IntegerArray[CheckItem + 1] = LastItem
+    return IntegerArray
+
+#di) recursive binary search
+def BinarySearch(IntegerArray, First, Last, ToFind):
+    if First > Last:
+        return -1
+    Mid = (First + Last) // 2
+    if IntegerArray[Mid] == ToFind:
+        return Mid
+    elif IntegerArray[Mid] > ToFind:
+        return BinarySearch(IntegerArray, First, Mid - 1, ToFind)
+    else:
+        return BinarySearch(IntegerArray, Mid + 1, Last, ToFind)
+#do part bii), cii), dii) here 
+NumberArray = [100, 85, 644, 22, 15, 8, 1]
+SortedArray = IterativeInsertion(NumberArray)
+SearchResult = BinarySearch(SortedArray, 0, len(SortedArray) - 1, 100)
+print("Not found" if SearchResult == -1 else f"Found at index {SearchResult}")

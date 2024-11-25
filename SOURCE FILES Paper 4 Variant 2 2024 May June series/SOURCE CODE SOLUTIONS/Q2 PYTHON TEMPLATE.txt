@@ -1,0 +1,71 @@
+class ______:
+    def __init__(self, data):
+        self.data = data
+        self.left_pointer = ______  # Initialize left pointer
+        self.right_pointer = ______  # Initialize right pointer
+
+    def get_left(self):
+        return ______  # Return left pointer
+
+    def get_right(self):
+        return ______  # Return right pointer
+
+    def get_data(self):
+        return ______  # Return data value
+
+    def set_left(self, left_pointer):
+        self.______ = left_pointer  # Set left pointer
+
+    def set_right(self, right_pointer):
+        self.______ = right_pointer  # Set right pointer
+
+    def set_data(self, data):
+        self.______ = data  # Set data value
+
+
+class ______:
+    def __init__(self):
+        self.tree = [______(-1) for _ in range(20)]  # Create an array of Node objects (the "for _" ISN'T a blank)
+        self.first_node = ______  # Initialize first node index
+        self.number_nodes = ______  # Initialize number of nodes
+
+    def ______(self, new_node):
+        if self.number_nodes == 0:
+            self.tree[self.number_nodes] = new_node
+            self.first_node = ______  # First node index is set to 0
+        else:
+            current_index = self._____________
+            while True:
+                if new_node.get_data() < self.tree[_____________].get_data():
+                    if self.tree[_____________].get_left() == -1:
+                        self.tree[_____________].set_left(______)  # Set left child index
+                        break
+                    else:
+                        current_index = self.tree[_____________].______()
+                else:
+                    if self.tree[_____________].get_right() == -1:
+                        self.tree[_____________].set_right(______)  # Set right child index
+                        break
+                    else:
+                        _____________ = self.tree[_____________].______()
+            self.tree[self.number_nodes] = new_node
+        self.number_nodes += 1  # Increment the number of nodes
+
+    def ______(self):
+        if self.number_nodes == 0:
+            print("______")  # Output if no nodes exist
+        else:
+            for i in range(self.number_nodes):
+                node = self.tree[i]
+                print(f"Node {i}: Left={node.______()}, Data={node.______()}, Right={node.______()}")  # Output node details
+
+
+if __name__ == "__main__":
+    the_tree = ______()  # Create an instance of TreeClass
+    
+    values_to_insert = [10, 11, 5, 1, 20, 7, 15]  # Values to insert into the tree
+    
+    for value in values_to_insert:
+        the_tree.______(______(value))  # Insert each value as a Node
+    
+    the_tree.______()

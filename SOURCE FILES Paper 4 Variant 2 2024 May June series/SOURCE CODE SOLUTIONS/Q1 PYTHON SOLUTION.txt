@@ -1,0 +1,72 @@
+WordArray = []
+NumberWords = 0
+
+
+def Play():
+    global WordArray, NumberWords
+
+    main_word = WordArray[0]
+    print(f"Main word: {main_word}")
+    print(f"Number of possible answers: {NumberWords}")
+    
+    correct_count = 0
+    guessed_words = []
+
+    while True:
+        user_input = input("Enter a word (or no to stop): ").strip().lower()
+        
+        if user_input == "no":
+            break
+        
+        if user_input in WordArray[1:]:
+            print(f"{user_input} is a correct answer!")
+            guessed_words.append(user_input)
+            WordArray[WordArray.index(user_input)] = None  # Remove the word
+            correct_count += 1
+        else:
+            print(f"{user_input} is not an answer.")
+    
+    # Calculate and output the percentage
+    percentage = (correct_count / NumberWords) * 100 if NumberWords > 0 else 0
+    print(f"You guessed {correct_count} out of {NumberWords} answers ({percentage:.2f}%).")
+    
+    # Output missed answers
+    missed_answers = [word for word in WordArray[1:] if word is not None]
+    if missed_answers:
+        print("You missed the following answers:")
+        print(", ".join(missed_answers))
+    else:
+        print("You found all the answers!")
+
+def ReadWords(filename):
+    global WordArray, NumberWords
+    WordArray = []  # Initialize/reset the array
+    try:
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+            WordArray.append(lines[0].strip())  # Main word
+            for line in lines[1:]:
+                WordArray.append(line.strip())  # Answers
+            NumberWords = len(lines) - 1  # Count of answers
+    except FileNotFoundError:
+        print(f"Error: File {filename} not found.")
+    
+    Play()    
+        
+
+difficulty = input("Enter difficulty level (easy, medium, hard): ").lower()
+filename = ""
+
+# Map user input to filenames
+if difficulty == "easy":
+    filename = "Easy.txt"
+elif difficulty == "medium":
+    filename = "Medium.txt"
+elif difficulty == "hard":
+    filename = "Hard.txt"
+else:
+    print("Invalid input. Please enter easy, medium, or hard.")
+
+# Call the ReadWords procedure
+ReadWords(filename)
+print(f"Main word: {WordArray[0]} ({NumberWords} possible answers)")

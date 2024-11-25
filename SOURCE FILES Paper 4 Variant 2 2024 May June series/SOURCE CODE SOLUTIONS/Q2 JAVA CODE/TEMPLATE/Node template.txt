@@ -1,0 +1,36 @@
+public class ______ {
+    private int leftPointer;
+    private int data;
+    private int rightPointer;
+
+    public ______(int data) {
+        this.data = data;
+        this.leftPointer = ______;
+        this.rightPointer = ______;
+    }
+
+    public int ______() {
+        return leftPointer;
+    }
+
+    public int ______() {
+        return rightPointer;
+    }
+
+    public int ______() {
+        return data;
+    }
+
+    public void ______(int leftPointer) {
+        this.______ = leftPointer;
+    }
+
+    public void ______(int rightPointer) {
+        this.______ = rightPointer;
+    }
+
+    public void ______(int data) {
+        this.______ = data;
+    }
+}
+

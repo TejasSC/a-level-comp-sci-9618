@@ -1,0 +1,5 @@
+public class Main {
+    public static void main(String[] args) {
+        //write your main program for Q2 here! 
+    }
+}

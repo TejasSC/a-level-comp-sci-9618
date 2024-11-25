@@ -1,0 +1,51 @@
+public class ______ {
+    private ______[] tree = new ______[20];
+    private int firstNode = ______;
+    private int numberNodes = ______;
+
+    public ______() {
+        for (int i = 0; i < tree.length; i++) {
+            tree[i] = new ______(______);
+        }
+    }
+
+    public void ______(______ newNode) {
+        if (numberNodes == 0) {
+            tree[numberNodes] = newNode;
+            firstNode = ______;
+        } else {
+            int currentIndex = firstNode;
+            while (true) {
+                if (newNode.______() < tree[currentIndex].______()) {
+                    if (tree[____________].______() == -1) {
+                        tree[____________].______(numberNodes);
+                        break;
+                    } else {
+                        currentIndex = tree[currentIndex].______();
+                    }
+                } else {
+                    if (tree[____________].______() == -1) {
+                        tree[____________].______(numberNodes);
+                        break;
+                    } else {
+                        currentIndex = tree[____________].______();
+                    }
+                }
+            }
+            tree[numberNodes] = newNode;
+        }
+        numberNodes++;
+    }
+
+    public void ______() {
+        if (numberNodes == 0) {
+            System.out.println("______");
+        } else {
+            for (int i = 0; i < numberNodes; i++) {
+                System.out.println("Node " + i + ": Left=" + tree[i].______() +
+                                   ", Data=" + tree[i].______() +
+                                   ", Right=" + tree[i].______());
+            }
+        }
+    }
+}

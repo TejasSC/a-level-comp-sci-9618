@@ -1,0 +1,53 @@
+class ______ {
+    public static int[] ______(int[] IntegerArray, int NumberElements) {
+        if (NumberElements <= 1) {
+            return ______;
+        }
+    
+        ______(IntegerArray, NumberElements - 1);
+    
+        int LastItem = IntegerArray[______];
+        int CheckItem = ______;
+    
+        while (______ && ______) {
+            IntegerArray[______] = IntegerArray[______];
+            CheckItem--;
+        }
+    
+        IntegerArray[______] = LastItem;
+        return ______;
+    }
+
+    public static int[] ______(int[] IntegerArray) {
+        for (int i = 1; i < ______; i++) {
+            int LastItem = ______;
+            int CheckItem = ______;
+    
+            while (______ && ______) {
+                IntegerArray[______] = IntegerArray[______];
+                CheckItem--;
+            }
+            IntegerArray[______] = LastItem;
+        }
+        return ______;
+    }
+
+    public static int ______(int[] IntegerArray, int First, int Last, int ToFind) {
+        if (______) {
+            return ______;
+        }
+    
+        int Mid = ______;
+        if (______) {
+            return ______;
+        } else if (______) {
+            return ______(IntegerArray, ______, ______, ToFind);
+        } else {
+            return ______(IntegerArray, ______, ______, ToFind);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Main program left empty for you to fill in, on parts bii, cii, and dii
+    }
+}

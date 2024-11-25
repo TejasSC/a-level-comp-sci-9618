@@ -1,0 +1,61 @@
+class Main {
+    public static int[] RecursiveInsertion(int[] IntegerArray, int NumberElements) {
+        if (NumberElements <= 1) {
+            return IntegerArray;
+        }//if 
+    
+        RecursiveInsertion(IntegerArray, NumberElements - 1);
+    
+        int LastItem = IntegerArray[NumberElements - 1];
+        int CheckItem = NumberElements - 2;
+    
+        while (CheckItem >= 0 && IntegerArray[CheckItem] > LastItem) {
+            IntegerArray[CheckItem + 1] = IntegerArray[CheckItem];
+            CheckItem--;
+        }//while
+    
+        IntegerArray[CheckItem + 1] = LastItem;
+        return IntegerArray;
+    }//RecursiveInsertionSort
+
+    public static int[] IterativeInsertion(int[] IntegerArray) {
+        for (int i = 1; i < IntegerArray.length; i++) {
+            int LastItem = IntegerArray[i];
+            int CheckItem = i - 1;
+    
+            while (CheckItem >= 0 && IntegerArray[CheckItem] > LastItem) {
+                IntegerArray[CheckItem + 1] = IntegerArray[CheckItem];
+                CheckItem--;
+            }//while
+            IntegerArray[CheckItem + 1] = LastItem;
+        }//for 
+        return IntegerArray;
+    }//IterativeInsertion
+
+    public static int BinarySearch(int[] IntegerArray, int First, int Last, int ToFind) {
+        if (First > Last) {
+            return -1;
+        }//if 
+    
+        int Mid = (First + Last) / 2;
+        if (IntegerArray[Mid] == ToFind) {
+            return Mid;
+        } else if (IntegerArray[Mid] > ToFind) {
+            return BinarySearch(IntegerArray, First, Mid - 1, ToFind);
+        } else {
+            return BinarySearch(IntegerArray, Mid + 1, Last, ToFind);
+        }//if
+    }//Binary Search
+
+    public static void main(String[] args) {
+        int[] NumberArray = {100, 85, 644, 22, 15, 8, 1};
+        int[] SortedArray = IterativeInsertion(NumberArray);
+        int SearchResult = BinarySearch(SortedArray, 0, SortedArray.length - 1, 644);
+    
+        if (SearchResult == -1) {
+            System.out.println("Not found");
+        } else {
+            System.out.println("Found at index " + SearchResult);
+        }//if 
+    }//main
+}//Main
